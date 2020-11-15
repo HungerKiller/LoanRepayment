@@ -1,0 +1,26 @@
+<div class="container-fluid col-md-12">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>定义</h5>
+            <table class="table table-bordered">
+                <tr *ngFor="let formule of definition">
+                    <td valign="middle">{{ formule.name }}</td>
+                    <td>
+                        <ng-katex-html [html]="formule.value"></ng-katex-html>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h5>公式</h5>
+            <table class="table table-bordered">
+                <tr *ngFor="let formule of formula">
+                    <td valign="middle">{{ formule.name }}</td>
+                    <td>
+                        <ng-katex-html [html]="formule.value"></ng-katex-html>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

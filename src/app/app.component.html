@@ -1,0 +1,82 @@
+<div id="nav">
+    <div class="container-fluid col-md-8">
+        <div id="title">
+            <h3 ><p class="font-weight-bold">贷款还款计算器</p></h3>
+            <h5><p class="font-italic">帮助您更好的理解“等额本金”和“等额本息”</p></h5>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fa fa-money fa-fw" aria-hidden="true"></i></span>
+                    <p-inputNumber [(ngModel)]="money" placeholder="贷款金额" mode="currency" currency="EUR" locale="fr-FR"
+                        [showButtons]="true" [step]="1000"></p-inputNumber>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+                    <p-inputNumber [(ngModel)]="year" placeholder="贷款年限" [showButtons]="true" [min]="1" [max]="30"
+                        [step]="1"></p-inputNumber>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fa fa-percent fa-fw" aria-hidden="true"></i></span>
+                    <p-inputNumber [(ngModel)]="rate" suffix="%" placeholder="贷款年利率" [showButtons]="true" [min]="0"
+                        [max]="100" [step]="0.01"></p-inputNumber>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="p-inputgroup">
+                    <button pButton type="button" label="计算" (click)="calculate()"><i class="fa fa-calculator fa-fw"
+                            aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-accordion [multiple]="true">
+    <!-- 等额本息 -->
+    <p-accordionTab id="next" header="等额本息" [selected]="true">
+        <div class="container-fluid col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <app-formula [definition]="formulaDefinition" [formula]="formulaInterest"></app-formula>
+                </div>
+                <div class="col-md-4">
+                    <div *ngIf="equalityInterest">
+                        <app-analyse-pie [data]="equalityInterest"></app-analyse-pie>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="equalityInterest">
+                <app-analyse [data]="equalityInterest"></app-analyse>
+            </div>
+        </div>
+    </p-accordionTab>
+    <!-- 等额本金 -->
+    <p-accordionTab header="等额本金" [selected]="true">
+        <div class="container-fluid col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <app-formula [definition]="formulaDefinition" [formula]="formulaPrincipal"></app-formula>
+                </div>
+                <div class="col-md-4">
+                    <div *ngIf="equalityPrincipal">
+                        <app-analyse-pie [data]="equalityPrincipal"></app-analyse-pie>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="equalityPrincipal">
+                <app-analyse [data]="equalityPrincipal"></app-analyse>
+            </div>
+        </div>
+    </p-accordionTab>
+    <!-- 对比分析 -->
+    <p-accordionTab header="对比分析" [selected]="true">
+        <div class="container-fluid col-md-12">
+            <app-analyse-all [dataInterest]="equalityInterest" [dataPrincipal]="equalityPrincipal"></app-analyse-all>
+        </div>
+    </p-accordionTab>
+</p-accordion>
