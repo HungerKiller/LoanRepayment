@@ -76,7 +76,9 @@
     <!-- 对比分析 -->
     <p-accordionTab header="对比分析" [selected]="true">
         <div class="container-fluid col-md-12">
-            <app-analyse-all [dataInterest]="equalityInterest" [dataPrincipal]="equalityPrincipal"></app-analyse-all>
+            <div *ngIf="equalityPrincipal">
+                <app-analyse-all [dataInterest]="equalityInterest" [dataPrincipal]="equalityPrincipal"></app-analyse-all>
+            </div>
         </div>
     </p-accordionTab>
 </p-accordion>
