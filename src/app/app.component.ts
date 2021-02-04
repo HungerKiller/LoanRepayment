@@ -21,25 +21,25 @@ export class AppComponent {
   equalityInterest: Repayment;
 
   formulaDefinition = [
-    new Formula("贷款总额", "<div>$P$</div>"),
-    new Formula("还款年限", "<div>$N$</div>"),
-    new Formula("还款期数", "<div>$n = N \\times 12$</div>"),
-    new Formula("年利率", "<div>$R$</div>"),
-    new Formula("月利率", "<div>$r = \\cfrac{R}{12}$</div>")];
+    new Formula("Loan amount", "<div>$P$</div>"),
+    new Formula("Loan period (year)", "<div>$N$</div>"),
+    new Formula("Total number of instalments", "<div>$n = N \\times 12$</div>"),
+    new Formula("Annual interest rate", "<div>$R$</div>"),
+    new Formula("Monthly interest rate", "<div>$r = \\cfrac{R}{12}$</div>")];
 
   formulaPrincipal = [
-    new Formula("第i月还总额", "<div>$\\cfrac{P}{n} + (P - \\cfrac{P \\times (i - 1)}{n}) \\times r$</div>"),
-    new Formula("第i月还本金", "<div>$\\cfrac{P}{n}$</div>"),
-    new Formula("第i月还利息", "<div>$(P - \\cfrac{P \\times (i - 1)}{n}) \\times r$</div>"),
-    new Formula("还款总利息", "<div>$\\cfrac{(n + 1) \\times P \\times r}{2}$</div>"),
-    new Formula("还款总额", "<div>$\\cfrac{(n + 1) \\times P \\times r}{2} + P$</div>")];
+    new Formula("Amount of repayment of month i", "<div>$\\cfrac{P}{n} + (P - \\cfrac{P \\times (i - 1)}{n}) \\times r$</div>"),
+    new Formula("Principal of repayment of month i", "<div>$\\cfrac{P}{n}$</div>"),
+    new Formula("Interest of repayment of month i", "<div>$(P - \\cfrac{P \\times (i - 1)}{n}) \\times r$</div>"),
+    new Formula("Total interest on repayment", "<div>$\\cfrac{(n + 1) \\times P \\times r}{2}$</div>"),
+    new Formula("Total repayment amount", "<div>$\\cfrac{(n + 1) \\times P \\times r}{2} + P$</div>")];
 
   formulaInterest = [
-    new Formula("第i月还总额(PM)", "<div>$\\cfrac{P \\times r \\times (1 + r) ^ n }{(1 + r) ^ n - 1}$</div>"),
-    new Formula("第i月还本金", "<div>$(PM - P \\times r) \\times (1 + r) ^ i$</div>"),
-    new Formula("第i月还利息", "<div>$PM - (PM - P \\times r) \\times (1 + r) ^ i$</div>"),
-    new Formula("还款总利息", "<div>$\\cfrac{n \\times P \\times r \\times (1 + r) ^ n}{(1 + r) ^ n - 1} - P$</div>"),
-    new Formula("还款总额", "<div>$\\cfrac{n \\times P \\times r \\times (1 + r) ^ n}{(1 + r) ^ n - 1}$</div>")];
+    new Formula("Amount of repayment of month i (note: PM)", "<div>$\\cfrac{P \\times r \\times (1 + r) ^ n }{(1 + r) ^ n - 1}$</div>"),
+    new Formula("Principal of repayment of month i", "<div>$(PM - P \\times r) \\times (1 + r) ^ i$</div>"),
+    new Formula("Interest of repayment of month i", "<div>$PM - (PM - P \\times r) \\times (1 + r) ^ i$</div>"),
+    new Formula("Total interest on repayment", "<div>$\\cfrac{n \\times P \\times r \\times (1 + r) ^ n}{(1 + r) ^ n - 1} - P$</div>"),
+    new Formula("Total repayment amount", "<div>$\\cfrac{n \\times P \\times r \\times (1 + r) ^ n}{(1 + r) ^ n - 1}$</div>")];
 
   constructor(private primengConfig: PrimeNGConfig, private calculateService: CalculateService) { }
 

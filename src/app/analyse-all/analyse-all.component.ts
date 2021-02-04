@@ -25,7 +25,7 @@ export class AnalyseAllComponent implements OnInit {
 
     let monthIndex = [];
     for (let i = 1; i <= this.dataPrincipal.principals.length; i++) {
-      monthIndex.push(`第${i}月`);
+      monthIndex.push(`${i}th Month`);
     }
 
     this.barOption = {
@@ -36,7 +36,7 @@ export class AnalyseAllComponent implements OnInit {
         }
       },
       legend: {
-        data: ['等额本息-本金', '等额本息-利息', '等额本息-总额', '等额本金-本金', '等额本金-利息', '等额本金-总额']
+        data: ['FI-Principal', 'FI-Interest', 'FI-Amount', 'RI-Principal', 'RI-Interest', 'RI-Amount']
       },
       toolbox: {
         // y: 'bottom',
@@ -63,7 +63,7 @@ export class AnalyseAllComponent implements OnInit {
       },
       series: [
         {
-          name: '等额本息-本金',
+          name: 'FI-Principal',
           type: 'bar',
           stack: 'interest',
           label: {
@@ -73,7 +73,7 @@ export class AnalyseAllComponent implements OnInit {
           data: this.dataInterest.principals
         },
         {
-          name: '等额本息-利息',
+          name: 'FI-Interest',
           type: 'bar',
           stack: 'interest',
           label: {
@@ -83,7 +83,7 @@ export class AnalyseAllComponent implements OnInit {
           data: this.dataInterest.interests
         },
         {
-          name: '等额本息-总额',
+          name: 'FI-Amount',
           type: 'bar',
           stack: 'interestAll',
           label: {
@@ -93,7 +93,7 @@ export class AnalyseAllComponent implements OnInit {
           data: this.dataInterest.totals
         },
         {
-          name: '等额本金-本金',
+          name: 'RI-Principal',
           type: 'bar',
           stack: 'principal',
           label: {
@@ -103,7 +103,7 @@ export class AnalyseAllComponent implements OnInit {
           data: this.dataPrincipal.principals
         },
         {
-          name: '等额本金-利息',
+          name: 'RI-Interest',
           type: 'bar',
           stack: 'principal',
           label: {
@@ -113,7 +113,7 @@ export class AnalyseAllComponent implements OnInit {
           data: this.dataPrincipal.interests
         },
         {
-          name: '等额本金-总额',
+          name: 'RI-Amount',
           type: 'bar',
           stack: 'principalAll',
           label: {

@@ -29,11 +29,11 @@ export class AnalysePieComponent implements OnInit {
       legend: {
         // orient: 'vertical',
         // left: 10,
-        data: ['本金', '利息']
+        data: ['Principal', 'Interest']
       },
       series: [
         {
-          name: '还款',
+          name: 'Repayment',
           type: 'pie',
           radius: ['50%', '70%'],
           avoidLabelOverlap: false,
@@ -52,8 +52,8 @@ export class AnalysePieComponent implements OnInit {
             show: false
           },
           data: [
-            { value: this.data.sumPrincipal, name: '本金' },
-            { value: this.data.sumInterest, name: '利息' }
+            { value: this.data.sumPrincipal, name: 'Principal' },
+            { value: this.data.sumInterest, name: 'Interest' }
           ]
         }
       ]

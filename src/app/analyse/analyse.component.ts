@@ -23,7 +23,7 @@ export class AnalyseComponent implements OnInit {
   private buildBarOption() {
     let monthIndex = [];
     for (let i = 1; i <= this.data.principals.length; i++) {
-      monthIndex.push(`第${i}月`);
+      monthIndex.push(`${i}th Month`);
     }
 
     this.barOption = {
@@ -34,7 +34,7 @@ export class AnalyseComponent implements OnInit {
         }
       },
       legend: {
-        data: ['本金', '利息']
+        data: ['Principal', 'Interest']
       },
       toolbox: {
         // y: 'bottom',
@@ -65,7 +65,7 @@ export class AnalyseComponent implements OnInit {
       },
       series: [
         {
-          name: '本金',
+          name: 'Principal',
           type: 'bar',
           label: {
             show: false,
@@ -74,7 +74,7 @@ export class AnalyseComponent implements OnInit {
           data: this.data.principals
         },
         {
-          name: '利息',
+          name: 'Interest',
           type: 'bar',
           label: {
             show: false,
